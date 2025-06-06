@@ -59,7 +59,7 @@ app.all('/player/*', function (req, res) {
 });
 
 app.get('/', function (req, res) {
-    res.send('Rabbid Loginurl Created @Lecco');
+    res.send('Rabbid Loginurl Created By @Lecco');
 });
 
 app.listen(5000, function () {

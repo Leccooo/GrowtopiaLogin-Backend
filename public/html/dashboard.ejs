@@ -6,10 +6,27 @@
   <title>Growrabbid - Dashboard</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+
+  <style>
+    @keyframes fall {
+      0% {
+        opacity: 0;
+        transform: translateY(-100px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fall {
+      animation: fall 1.5s ease-out;
+    }
+  </style>
 </head>
-<body class="flex flex-col items-center justify-center h-screen">
+<body class="flex flex-col items-center justify-center h-screen bg-[#1a2a38]">
   <div class="fixed inset-0 flex items-center justify-center">
-    <div class="relative bg-[#2b4d6d] border-4 border-[#87b8cc] shadow-lg p-6 w-80 rounded-lg">
+    <div class="relative bg-[#2b4d6d] border-4 border-[#87b8cc] shadow-lg p-6 w-80 rounded-lg animate-fall">
       <p class="text-white text-center font-bold text-2xl">Login</p>
 
       <div id="errorDiv" class="hidden flex flex-col mt-2 text-xs text-red-700 font-bold px-[5px] bg-[#2b4d6d] rounded">
@@ -20,16 +37,12 @@
         <input name="type" id="formType" value="log" type="hidden" />
         <input name="_token" value="<%= JSON.stringify(data) %>" type="hidden" />
 
-        <!-- Server Selection -->
+        <!-- Server Name Input -->
         <div class="mb-1">
-          <label for="serverSelect" class="block text-white text-xs">Select Server</label>
+          <label for="serverName" class="block text-white text-xs">Enter Server Name</label>
           <div class="flex items-center border-2 border-[#81d4fa] rounded bg-[#2b4d6d] px-1 py-1">
             <i class="fas fa-server text-white mr-1 text-xs"></i>
-            <select id="serverSelect" name="server" class="w-full bg-[#2b4d6d] text-white text-xs focus:outline-none">
-              <option value="main">Fire PS</option>
-              <option value="test">Dream PS</option>
-              <option value="dev">Development</option>
-            </select>
+            <input type="text" id="serverName" name="server" class="w-full bg-[#2b4d6d] text-white text-xs placeholder-white focus:outline-none" placeholder="e.g. Fire PS">
           </div>
         </div>
 
